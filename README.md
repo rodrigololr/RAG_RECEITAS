@@ -15,12 +15,12 @@ Guia completo do projeto, organizado pra você seguir task por task.
 
 ## Ordem de leitura sugerida
 
-1. **[decisions.md](decisions.md)** — entender o que escolhemos e por quê
-2. **[architecture.md](architecture.md)** — ver o sistema inteiro
-3. **[setup.md](setup.md)** — executar T001-T003 (setup)
-4. **[tasks.md](tasks.md)** — guia de T004 em diante
-5. **[pipeline.md](pipeline.md)** — consultar conforme avança
-6. **[glossary.md](glossary.md)** — consultar quando travar num termo
+1. **[decisions.md](docs/decisions.md)** — entender o que escolhemos e por quê
+2. **[architecture.md](docs/architecture.md)** — ver o sistema inteiro
+3. **[setup.md](/docs/setup.md)** — executar T001-T003 (setup)
+4. **[tasks.md](docs/tasks.md)** — guia de T004 em diante
+5. **[pipeline.md](docs/pipeline.md)** — consultar conforme avança
+6. **[glossary.md](docs/glossary.md)** — consultar quando travar num termo
 
 ## Estado atual
 

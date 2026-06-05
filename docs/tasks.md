@@ -20,46 +20,46 @@ Detalhes completos em [setup.md](setup.md). Resumo aqui.
 
 ### T001 — Instalar bibliotecas
 
-**O que**: instalar `llama-cpp-python`, `chromadb`, `sentence-transformers`, `langchain`, `pypdf`.
+**O que**: instalar `chromadb`, `sentence-transformers`, `langchain`, `langchain-community`, `langchain-openai`. (Usaremos o `llama-server` local de `llama-cpp-turboquant` em vez do `llama-cpp-python`).
 
 **Comandos**:
 ```bash
 cd /home/antonio/Documentos/FInaL_de_semana/Rag_receitas
 source .venv/bin/activate
 pip install --upgrade pip
-pip install llama-cpp-python chromadb sentence-transformers langchain langchain-community pypdf
+pip install chromadb sentence-transformers langchain langchain-community langchain-openai
 ```
 
 **Verificação**:
 ```bash
-pip list | grep -E "llama-cpp-python|chromadb|sentence-transformers|langchain|pypdf"
+pip list | grep -E "chromadb|sentence-transformers|langchain"
 ```
-Esperado: 5+ linhas.
+Esperado: linhas com as bibliotecas correspondentes.
 
-**Status**: ⬜ pendente
+**Status**: ✅ concluído
 
 ---
 
-### T002 — Baixar LLM (Qwen2.5-3B-Instruct)
+### T002 — Configurar LLM (Gemma-3-Gaia-PT-BR-4B-It-GGUF)
 
-**O que**: baixar `qwen2.5-3b-instruct-q4_k_m.gguf` (~1.9GB) para `models/`.
+**O que**: configurar `gemma-3-gaia-pt-br-4b-it-q4_k_m.gguf` (~2.4GB) em `models/` e rodar o servidor local.
 
-**Comandos**:
+**Comandos para rodar o servidor**:
 ```bash
-pip install huggingface_hub
-huggingface-cli download Qwen/Qwen2.5-3B-Instruct-GGUF \
-  qwen2.5-3b-instruct-q4_k_m.gguf \
-  --local-dir models/ \
-  --local-dir-use-symlinks False
+/home/antonio/llama-cpp-turboquant/build/bin/llama-server \
+  -m /home/antonio/Documentos/FInaL_de_semana/Rag_receitas/models/gemma-3-gaia-pt-br-4b-it-q4_k_m.gguf \
+  -c 4096 \
+  --port 8080 \
+  -ngl 99
 ```
 
 **Verificação**:
 ```bash
-ls -lh models/qwen2.5-3b-instruct-q4_k_m.gguf
+ls -lh models/gemma-3-gaia-pt-br-4b-it-q4_k_m.gguf
 ```
-Esperado: arquivo 1.8-2.2GB.
+Esperado: arquivo apontando para o cache/blob HuggingFace de ~2.4GB.
 
-**Status**: ⬜ pendente
+**Status**: ✅ concluído
 
 ---
 
@@ -74,7 +74,7 @@ python -c "from sentence_transformers import SentenceTransformer; m = SentenceTr
 
 **Verificação**: imprime `OK, dim: 384`.
 
-**Status**: ⬜ pendente
+**Status**: ✅ concluído
 
 ---
 
@@ -82,7 +82,7 @@ python -c "from sentence_transformers import SentenceTransformer; m = SentenceTr
 
 ### T004 — Criar 3-5 receitas-exemplo
 
-**O que**: colocar 3-5 receitas em MD dentro de `data/receitas/`. Eu te mando template + 2 exemplos preenchidos.
+**O que**: colocar 3-5 receitas em MD dentro de `data/receitas/`.
 
 **Entrega**: `data/receitas/*.md` (mínimo 3 arquivos).
 
@@ -92,7 +92,7 @@ ls data/receitas/
 ```
 Esperado: 3+ arquivos `.md`.
 
-**Status**: ⬜ pendente
+**Status**: ✅ concluído
 
 ---
 
@@ -106,7 +106,7 @@ Esperado: 3+ arquivos `.md`.
 
 **Verificação**: print do primeiro chunk de cada receita.
 
-**Status**: ⬜ pendente
+**Status**: ✅ concluído
 
 ---
 

@@ -37,23 +37,21 @@ pip install --upgrade pip
 ### Passo 3: instalar libs principais
 
 ```bash
-pip install llama-cpp-python chromadb sentence-transformers langchain langchain-community pypdf
+pip install chromadb sentence-transformers langchain langchain-community
 ```
 
 ### O que cada lib faz
 
 | Lib | Papel |
 |-----|-------|
-| `llama-cpp-python` | Rodar LLM local (modelo GGUF) sem precisar de GPU |
 | `chromadb` | Vector DB local, persiste em pasta |
 | `sentence-transformers` | Gerar embeddings (vetores) dos textos |
 | `langchain` + `langchain-community` | Orquestrar o pipeline (loaders, splitters, chains) |
-| `pypdf` | Ler arquivos PDF |
 
 ### Verificação
 
 ```bash
-pip list | grep -E "llama-cpp-python|chromadb|sentence-transformers|langchain|pypdf"
+pip list | grep -E "chromadb|sentence-transformers|langchain"
 ```
 
 Esperado: 5 linhas com nome e versão. Exemplo:
@@ -143,8 +141,8 @@ pip install huggingface_hub
 ### Passo 2: baixar o modelo
 
 ```bash
-huggingface-cli download Qwen/Qwen2.5-3B-Instruct-GGUF \
-  qwen2.5-3b-instruct-q4_k_m.gguf \
+huggingface-cli download google/gemma-3-gaia-pt-br-4b-it-GGUF \
+  gemma-3-gaia-pt-br-4b-it-q4_k_m.gguf \
   --local-dir models/ \
   --local-dir-use-symlinks False
 ```
@@ -154,7 +152,7 @@ huggingface-cli download Qwen/Qwen2.5-3B-Instruct-GGUF \
 ### Passo 3: verificar
 
 ```bash
-ls -lh models/qwen2.5-3b-instruct-q4_k_m.gguf
+ls -lh models/gemma-3-gaia-pt-br-4b-it-q4_k_m.gguf
 ```
 
 Esperado: arquivo entre 1.8GB e 2.2GB.
@@ -163,7 +161,7 @@ Esperado: arquivo entre 1.8GB e 2.2GB.
 
 Se preferir baixar pelo browser:
 1. Acessar: https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/tree/main
-2. Localizar `qwen2.5-3b-instruct-q4_k_m.gguf`
+2. Localizar `gemma-3-gaia-pt-br-4b-it-q4_k_m.gguf`
 3. Clicar em "Download"
 4. Mover para `Rag_receitas/models/`
 
@@ -175,6 +173,7 @@ Se preferir baixar pelo browser:
 | Phi-3-mini-4k-instruct (Q4) | 2.3GB | 7GB | Muito boa | Se precisar melhor raciocínio |
 | Llama-3.1-8B-Instruct (Q4_K_M) | 4.9GB | 10GB | Ótima | Se tiver máquina forte |
 | TinyLlama-1.1B (Q4) | 700MB | 3GB | Frágil em PT | Só p/ testes rápidos |
+| gemma-3-gaia-pt-br-4b-it-q4_k_m.gguf | 2.3GB | 7GB | Muito boa | Se precisar melhor raciocínio |
 
 Recomendação: **comece com Qwen 3B**. Trocar depois é mudar 1 linha no notebook.
 
@@ -226,10 +225,10 @@ Recomendação: **comece com MiniLM**. Trocar = mudar 1 linha.
 
 ## Checklist final do setup
 
-- [ ] `pip list` mostra as 5+ libs instaladas (T001)
-- [ ] `models/qwen2.5-3b-instruct-q4_k_m.gguf` existe, ~1.9-2.2GB (T002)
-- [ ] Cache HF tem o MiniLM (T003)
-- [ ] Estrutura de pastas criada:
+- [x] `pip list` mostra as 5+ libs instaladas (T001)
+- [x] `models/gemma-3-gaia-pt-br-4b-it-q4_k_m.gguf` existe, ~1.9-2.2GB (T002)
+- [x] Cache HF tem o MiniLM (T003)
+- [x] Estrutura de pastas criada:
   ```
   Rag_receitas/
   ├── .venv/
@@ -247,16 +246,3 @@ mkdir -p models data/receitas
 ```
 
 ---
-
-## Reportar pra mim
-
-Quando concluir T001-T003, me envie:
-
-1. **T001**: ✅ ou ❌
-   - Se ❌: cole a mensagem de erro + comando exato
-2. **T002**: ✅ ou ❌ + tamanho do arquivo (`ls -lh models/`)
-3. **T003**: ✅ ou ❌ + saída do comando Python
-4. **Sistema**: `python --version` + `uname -a`
-5. **RAM disponível**: `free -h | head -2` (Linux)
-
-Aí libero T004 (template de receita em MD).
