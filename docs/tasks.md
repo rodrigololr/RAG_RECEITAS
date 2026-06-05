@@ -109,7 +109,7 @@ Esperado: 3+ arquivos `.md`.
 **Status**: ✅ concluído
 
 ---
-
+   
 ### T006 — Testar chunking estruturado
 
 **O que**: célula que pega o texto e divide em chunks (macros, ingredientes, preparo, dicas), cada um com metadata.
