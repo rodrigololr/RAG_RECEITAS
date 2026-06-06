@@ -6,12 +6,12 @@ Guia completo do projeto, organizado pra você seguir task por task.
 
 | Doc | Conteúdo | Status |
 |-----|----------|--------|
-| [architecture.md](architecture.md) | Visão geral do sistema, componentes, fluxo de dados | T001-T003 |
-| [pipeline.md](pipeline.md) | Como RAG funciona, cada etapa do pipeline | T005-T011 |
-| [setup.md](setup.md) | Instalar libs, baixar modelos (T001-T003) | **comece aqui** |
-| [tasks.md](tasks.md) | Lista completa de tarefas T001-T013 com critérios | sempre |
-| [decisions.md](decisions.md) | Stack escolhida e por quê (LLM, embed, vector DB) | referência |
-| [glossary.md](glossary.md) | Termos técnicos (embedding, chunk, cosine sim...) | referência |
+| [architecture.md](docs/architecture.md) | Visão geral do sistema, componentes, fluxo de dados | T001-T003 |
+| [pipeline.md](docs/pipeline.md) | Como RAG funciona, cada etapa do pipeline | T005-T011 |
+| [setup.md](docs/setup.md) | Instalar libs, baixar modelos (T001-T003) | **comece aqui** |
+| [tasks.md](docs/tasks.md) | Lista completa de tarefas T001-T013 com critérios | sempre |
+| [decisions.md](docs/decisions.md) | Stack escolhida e por quê (LLM, embed, vector DB) | referência |
+| [glossary.md](docs/glossary.md) | Termos técnicos (embedding, chunk, cosine sim...) | referência |
 
 ## Ordem de leitura sugerida
 
